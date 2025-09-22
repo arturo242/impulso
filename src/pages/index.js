@@ -18,31 +18,31 @@ export default function Home() {
       />
 
       <h2 className="text-2xl font-semibold md:text-4xl mt-20 mb-4">Impulso: una tarde diferente en Aguadulce</h2>
-      <p className="text-sm md:text-lg text-muted-foreground px-40">En Impulso, combinamos deporte, talleres temáticos y apoyo con los deberes en el Campamento Juan de Austria, creando un espacio donde los niños pueden aprender, explorar y divertirse de manera segura. Nuestro equipo está formado por profesionales comprometidos con el desarrollo integral de cada participante.</p>
-      <h2 className="text-2xl font-semibold md:text-4xl mt-20 mb-4">Lo que tus hijos vivirán cada tarde en Impulso</h2>
+      <p className="text-sm md:text-lg text-muted-foreground px-10">En Impulso, combinamos deporte, talleres temáticos y apoyo con los deberes en el Campamento Juan de Austria, creando un espacio donde los niños pueden aprender, explorar y divertirse de manera segura. Nuestro equipo está formado por profesionales comprometidos con el desarrollo integral de cada participante.</p>
+      <h2 className="text-2xl font-semibold md:text-4xl mt-20 mb-8">Lo que tus hijos vivirán cada tarde en Impulso</h2>
       <section className="flex flex-col md:flex-row gap-4 md:gap-0">
-        <div className="glass-card bg-neutral-800 px-8 py-4 rounded-xl flex flex-col justify-center items-center gap-2 mx-2 border-1 border-emerald-500/20">
+        <div className="glass-card bg-neutral-800 p-4 rounded-xl flex flex-col justify-center items-center gap-2 mx-2 border-1 border-emerald-500/20">
           <div className="rounded-full bg-neutral-900 p-2">
             🏃
           </div>
           <span className="text-xl font-semibold">Deporte</span>
           <p className="text-sm text-muted-foreground">Actividades físicas y juegos al aire libre que fomentan la salud y el trabajo en equipo.</p>
         </div>
-        <div className="glass-card bg-neutral-800 px-8 py-4 rounded-xl flex flex-col justify-center items-center gap-2 mx-2 border-1 border-emerald-500/20">
+        <div className="glass-card bg-neutral-800 p-4 rounded-xl flex flex-col justify-center items-center gap-2 mx-2 border-1 border-emerald-500/20">
           <div className="rounded-full bg-neutral-900 p-2">
             📚
           </div>
           <span className="text-xl font-semibold">Aprendizaje</span>
           <p className="text-sm text-muted-foreground">Apoyo con deberes y talleres educativos para estimular creatividad y pensamiento crítico.</p>
         </div>
-        <div className="glass-card bg-neutral-800 px-8 py-4 rounded-xl flex flex-col justify-center items-center gap-2 mx-2 border-1 border-emerald-500/20">
+        <div className="glass-card bg-neutral-800 p-4 rounded-xl flex flex-col justify-center items-center gap-2 mx-2 border-1 border-emerald-500/20">
           <div className="rounded-full bg-neutral-900 p-2">
             ❤️
           </div>
           <span className="text-xl font-semibold">Diversión</span>
           <p className="text-sm text-muted-foreground">Talleres temáticos y dinámicas que garantizan risas y experiencias inolvidables.</p>
         </div>
-        <div className="glass-card bg-neutral-800 px-8 py-4 rounded-xl flex flex-col justify-center items-center gap-2 mx-2 border-1 border-emerald-500/20">
+        <div className="glass-card bg-neutral-800 p-4 rounded-xl flex flex-col justify-center items-center gap-2 mx-2 border-1 border-emerald-500/20">
           <div className="rounded-full bg-neutral-900 p-2">
             🛡️
           </div>
