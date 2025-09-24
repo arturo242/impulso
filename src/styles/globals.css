@@ -3,14 +3,14 @@
 :root {
   --background: #262626;
   --foreground: #c9c9c9;
-  --primary: #56ab2f;
+  --primary: #00ad4a;
   --primary-light: #a1f5a3;
   --muted-foreground: #a1a1a1;
 }
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background: radial-gradient(circle at 50% 30%, #5a5a5a 0%, var(--background) 100%);
+  background: radial-gradient(circle at 50% 20%, #354133 0%, var(--background) 100%);
   color: var(--foreground);
 }
 
