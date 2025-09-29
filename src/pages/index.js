@@ -1,3 +1,4 @@
+import CheckoutForm from "@/components/CheckoutForm";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -62,21 +63,21 @@ export default function Home() {
         <p className="text-sm md:text-lg text-muted-foreground px-10">Nuestras actividades se realizan de lunes a viernes, de 16:00 a 20:00, para niños de 4 a 12 años.</p>
         <div className="flex lg:flex-row flex-col items-center justify-around gap-10 mt-20">
           <div className="flex lg:flex-col gap-5 text-start flex-1">
-            <div className="bg-neutral-800 flex items-center gap-2 rounded-lg p-4">
+            <div className="bg-emerald-950/40 flex items-center gap-2 rounded-lg p-4">
               <div>🕐</div>
               <div>
                 <div className="text-muted-foreground">Horario</div>
                 <div>16:00 - 20:00</div>
               </div>
             </div>
-            <div className="bg-neutral-800 flex items-center gap-2 rounded-lg p-4">
+            <div className="bg-emerald-950/40 flex items-center gap-2 rounded-lg p-4">
               <div>📅</div>
               <div>
                 <div className="text-muted-foreground">Días</div>
                 <div>Lunes a viernes</div>
               </div>
             </div>
-            <div className="bg-neutral-800 flex items-center gap-2 rounded-lg p-4">
+            <div className="bg-emerald-950/40 flex items-center gap-2 rounded-lg p-4">
               <div>👥</div>
               <div>
                 <div className="text-muted-foreground">Edades</div>
@@ -163,7 +164,10 @@ export default function Home() {
           />
           <div className="mt-4 text-muted-foreground">Alex</div>
         </div>
-      </section>  
+      </section>
+      <section id="inscripcion" className="mt-20">
+        {/* <CheckoutForm /> */}
+      </section>
     </div>
   );
 }
