@@ -1,8 +1,29 @@
 import CheckoutForm from "@/components/CheckoutForm";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY);
 export default function Home() {
+  const [clientSecret, setClientSecret] = useState(null);
+
+  useEffect(() => {
+    fetch("/api/create-payment-intent", { method: "POST" })
+      .then((res) => res.json())
+      .then((data) => setClientSecret(data.clientSecret))
+      .catch(() => setClientSecret(null));
+  }, []);
+
+  console.log(clientSecret)
+  const options = clientSecret
+    ? {
+      clientSecret,
+      appearance: { theme: "stripe" },
+      locale: "auto",
+    }
+    : undefined;
   return (
     <div
       className={`sm:max-w-[60vw] max-w-[90vw] mx-auto text-center py-20`}
@@ -22,28 +43,28 @@ export default function Home() {
       <p className="text-sm md:text-lg text-muted-foreground px-10">En Impulso, combinamos deporte, talleres temáticos y apoyo con los deberes en el Campamento Juan de Austria, creando un espacio donde los niños pueden aprender, explorar y divertirse de manera segura. Nuestro equipo está formado por profesionales comprometidos con el desarrollo integral de cada participante.</p>
       <h2 className="text-primary-light text-2xl font-semibold md:text-4xl mt-20 mb-8">Lo que tus hijos vivirán cada tarde en Impulso</h2>
       <section className="flex flex-col md:flex-row gap-4 md:gap-0 position-absolute">
-        <div className="glass-card bg-primary-radial p-4 rounded-xl flex flex-col justify-center items-center gap-2 mx-2 border-1 border-emerald-200/20">
+        <div className="glass-card bg-primary-radial p-4 rounded-xl flex flex-col justify-center items-center gap-2 mx-2 border-1 border-primary-light">
           <div className="rounded-full bg-neutral-900 p-2">
             🏃
           </div>
           <span className="text-xl font-semibold">Deporte</span>
           <p className="text-sm text-muted-foreground">Actividades físicas y juegos al aire libre que fomentan la salud y el trabajo en equipo.</p>
         </div>
-        <div className="glass-card bg-primary-radial p-4 rounded-xl flex flex-col justify-center items-center gap-2 mx-2 border-1 border-emerald-200/20">
+        <div className="glass-card bg-primary-radial p-4 rounded-xl flex flex-col justify-center items-center gap-2 mx-2 border-1 border-primary-light">
           <div className="rounded-full bg-neutral-900 p-2">
             📚
           </div>
           <span className="text-xl font-semibold">Aprendizaje</span>
           <p className="text-sm text-muted-foreground">Apoyo con deberes y talleres educativos para estimular creatividad y pensamiento crítico.</p>
         </div>
-        <div className="glass-card bg-primary-radial p-4 rounded-xl flex flex-col justify-center items-center gap-2 mx-2 border-1 border-emerald-500/20">
+        <div className="glass-card bg-primary-radial p-4 rounded-xl flex flex-col justify-center items-center gap-2 mx-2 border-1 border-primary-light">
           <div className="rounded-full bg-neutral-900 p-2">
             ❤️
           </div>
           <span className="text-xl font-semibold">Diversión</span>
           <p className="text-sm text-muted-foreground">Talleres temáticos y dinámicas que garantizan risas y experiencias inolvidables.</p>
         </div>
-        <div className="glass-card bg-primary-radial p-4 rounded-xl flex flex-col justify-center items-center gap-2 mx-2 border-1 border-emerald-500/20">
+        <div className="glass-card bg-primary-radial p-4 rounded-xl flex flex-col justify-center items-center gap-2 mx-2 border-1 border-primary-light">
           <div className="rounded-full bg-neutral-900 p-2">
             🛡️
           </div>
@@ -86,20 +107,20 @@ export default function Home() {
             </div>
           </div>
           <div className="min-w-[400px] text-start flex flex-col gap-6 flex-2">
-            <Link href="#inscripcion" className="bg-primary-radial p-4 rounded-lg border-1 border-gray-500/50 hover:border-emerald-500/70 block w-full">
+            <Link href="#inscripcion" className="bg-primary-radial p-4 rounded-lg border-1 border-gray-500/50 block w-full">
               <h3 className="text-2xl font-semibold">Semana</h3>
               <p className="text-sm text-muted-foreground">Perfecto para probar</p>
               <div className="text-4xl mt-6 mb-6">70€</div>
               <div className="px-6 py-3 text-white btn-grad rounded-xl">Reserva tu plaza hoy</div>
             </Link>
-            <Link href="#inscripcion" className="bg-primary-radial p-4 rounded-lg border-1 border-emerald-500/70 block w-full">
+            <Link href="#inscripcion" className="bg-primary-radial p-4 rounded-lg border-1 border-primary block w-full">
               <div className="flex justify-between items-center">
                 <div>
                   <h3 className="text-2xl font-semibold">Mes completo</h3>
                   <p className="text-sm text-muted-foreground">Perfecto para probar</p>
                 </div>
                 <div>
-                  <span className="rounded-full border px-2.5 py-0.5 text-xs font-semibold text-emerald-500 border-emerald-500/70">Oferta</span>
+                  <span className="rounded-full border px-2.5 py-0.5 text-xs font-semibold text-primary border-primary">Oferta</span>
                 </div>
               </div>
               <div className="text-4xl mt-6 mb-2 text-primary">200€</div>
@@ -123,19 +144,19 @@ export default function Home() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="flex items-start gap-4 rounded-lg p-4 bg-primary-radial border-1 border-emerald-500/20">
+            <div className="flex items-start gap-4 rounded-lg p-4 bg-primary-radial border-1 border-primary">
               <div className="w-6 h-6 text-primary flex-shrink-0 mt-1">✅</div>
               <p className="text-lg">Monitores cualificados con experiencia en educación y deporte.</p>
             </div>
-            <div className="flex items-start gap-4 rounded-lg p-4 bg-primary-radial border-1 border-emerald-500/20">
+            <div className="flex items-start gap-4 rounded-lg p-4 bg-primary-radial border-1 border-primary">
               <div className="w-6 h-6 text-primary flex-shrink-0 mt-1">✅</div>
               <p className="text-lg">Entorno seguro y supervisado en el Campamento Juan de Austria.</p>
             </div>
-            <div className="flex items-start gap-4 rounded-lg p-4 bg-primary-radial border-1 border-emerald-500/20">
+            <div className="flex items-start gap-4 rounded-lg p-4 bg-primary-radial border-1 border-primary">
               <div className="w-6 h-6 text-primary flex-shrink-0 mt-1">✅</div>
               <p className="text-lg">Actividades variadas que combinan deporte, deberes y talleres temáticos.</p>
             </div>
-            <div className="flex items-start gap-4 rounded-lg p-4 bg-primary-radial border-1 border-emerald-500/20">
+            <div className="flex items-start gap-4 rounded-lg p-4 bg-primary-radial border-1 border-primary">
               <div className="w-6 h-6 text-primary flex-shrink-0 mt-1">✅</div>
               <p className="text-lg">Enfoque integral: diversión y aprendizaje van de la mano.</p>
             </div>
@@ -143,7 +164,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="flex justify-center gap-12">
+      {/* <section className="flex justify-center gap-12">
         <div className="flex flex-col justify-center">
           <Image
             src="/avatar-1.avif"
@@ -164,9 +185,13 @@ export default function Home() {
           />
           <div className="mt-4 text-muted-foreground">Alex</div>
         </div>
-      </section>
+      </section> */}
       <section id="inscripcion" className="mt-20">
-        {/* <CheckoutForm /> */}
+        {clientSecret && (
+          <Elements stripe={stripePromise} options={options}>
+            <CheckoutForm />
+          </Elements>
+        )}
       </section>
     </div>
   );

@@ -1,16 +1,32 @@
 @import "tailwindcss";
 
 :root {
-  --background: #082429;
+  --royal-blue-50: #efefff;
+  --royal-blue-100: #dbdbff;
+  --royal-blue-200: #babaff;
+  --royal-blue-300: #9e9eff;
+  --royal-blue-400: #8282ff;
+  --royal-blue-500: #6d6dff;
+  --royal-blue-600: #4d4dff;
+  --royal-blue-700: #1818ff;
+  --royal-blue-800: #0000c0;
+  --royal-blue-900: #000075;
+  --royal-blue-950: #00004e;
+
+  /* --background: #082429; */
+  --background: var(--royal-blue-950);
   --foreground: #c9c9c9;
-  --primary: #00ad4a;
-  --primary-light: #a1f5a3;
-  --muted-foreground: #a1a1a1;
+  /* --primary: #00ad4a; */
+  --primary: var(--royal-blue-600);
+  /* --primary-light: #a1f5a3; */
+  --primary-light: var(--royal-blue-200);
+  /* --muted-foreground: #a1a1a1; */
+  --muted-foreground: var(--royal-blue-50);
 }
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background: radial-gradient(circle at 50% 20%, #354133 0%, var(--background) 100%);
+  background: radial-gradient(circle at 50% 20%, var(--royal-blue-400) 0%, var(--background) 100%);
   color: var(--foreground);
 }
 
@@ -32,8 +48,15 @@ body {
   background-color: var(--primary-light);
 }
 
+.border-primary {
+  border-color: var(--primary);
+}
+.border-primary-light {
+  border-color: var(--primary-light);
+}
+
 .bg-primary-radial {
-  background: radial-gradient(circle at 0%, rgba(0, 0, 0, 0.1) 0%, rgba(197, 255, 192, 0.2) 100%);
+  background: radial-gradient(circle at 0%, rgba(0, 0, 0, 0.1) 0%, rgba(192, 204, 255, 0.2) 100%);
 }
 
 
