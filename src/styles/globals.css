@@ -21,7 +21,11 @@
   /* --primary-light: #a1f5a3; */
   --primary-light: var(--royal-blue-200);
   /* --muted-foreground: #a1a1a1; */
-  --muted-foreground: var(--royal-blue-50);
+  --muted-foreground: var(--royal-blue-100);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {

@@ -10,7 +10,7 @@ export default function Home() {
   const [clientSecret, setClientSecret] = useState(null);
 
   useEffect(() => {
-    fetch("/api/create-payment-intent", { method: "POST" })
+    fetch("/api/stripe-intent", { method: "POST" })
       .then((res) => res.json())
       .then((data) => setClientSecret(data.clientSecret))
       .catch(() => setClientSecret(null));
@@ -28,8 +28,10 @@ export default function Home() {
     <div
       className={`sm:max-w-[60vw] max-w-[90vw] mx-auto text-center py-20`}
     >
-      <h1 className="text-4xl font-semibold md:text-6xl mb-6">¡Tardes inolvidables con Impulso en plena naturaleza de Aguadulce!</h1>
-      <p className="text-xl md:text-2xl text-muted-foreground px-10">En el Campamento Juan de Austria, tus hijos disfrutarán de deporte, aprendizaje y diversión cada tarde en un entorno seguro y profesional.</p>
+      <h1 className="text-2xl font-semibold md:text-4xl mb-6">Ludoteca Impulso – Campamento Juan de Austria, Aguadulce</h1>
+      <p className="text-lg md:text-xl text-muted-foreground px-10">Aprende, juega y crece rodeado de naturaleza.</p>
+      <p className="text-lg md:text-xl text-muted-foreground px-10">En la Ludoteca Impulso, ofrecemos una propuesta única para las tardes: un espacio educativo y lúdico en plena naturaleza, dentro del entorno privilegiado del Campamento Juan de Austria, en Aguadulce.</p>
+      <p className="text-lg md:text-xl text-muted-foreground px-10">Aquí, cada tarde es una oportunidad para aprender de forma divertida, disfrutar del aire libre y crecer en valores a través del juego, el deporte y la creatividad.</p>
       <Link href="#inscripcion" className="inline-block mt-4 px-6 py-3 text-white btn-grad rounded-2xl">¡Inscríbete ahora!</Link>
       <Image
         src="/1.jpeg"
