@@ -146,7 +146,7 @@ export default function CheckoutForm() {
         <div className="flex flex-col">
           <label className="text-sm mb-1">Nombre del niño/a *</label>
           <input
-            className="rounded-lg border bg-background p-3"
+            className="rounded-lg border border-primary-light shadow focus:shadow-blue-500 outline-none p-3"
             value={childName}
             onChange={(e) => setChildName(e.target.value)}
             placeholder="Nombre y apellidos"
@@ -159,7 +159,7 @@ export default function CheckoutForm() {
           <input
             type="number"
             min="1"
-            className="rounded-lg border bg-background p-3"
+            className="rounded-lg border border-primary-light shadow focus:shadow-blue-500 outline-none p-3"
             value={age}
             onChange={(e) => setAge(e.target.value)}
             placeholder="Años"
@@ -170,7 +170,7 @@ export default function CheckoutForm() {
         <div className="flex flex-col">
           <label className="text-sm mb-1">Nombre del tutor/a *</label>
           <input
-            className="rounded-lg border bg-background p-3"
+            className="rounded-lg border border-primary-light shadow focus:shadow-blue-500 outline-none p-3"
             value={guardianName}
             onChange={(e) => setGuardianName(e.target.value)}
             placeholder="Nombre y apellidos"
@@ -181,7 +181,7 @@ export default function CheckoutForm() {
         <div className="flex flex-col">
           <label className="text-sm mb-1">Teléfono de contacto *</label>
           <input
-            className="rounded-lg border bg-background p-3"
+            className="rounded-lg border border-primary-light shadow focus:shadow-blue-500 outline-none p-3"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
             placeholder="+34 6XX XXX XXX"
@@ -193,7 +193,7 @@ export default function CheckoutForm() {
           <label className="text-sm mb-1">Email *</label>
           <input
             type="email"
-            className="rounded-lg border bg-background p-3"
+            className="rounded-lg border border-primary-light shadow focus:shadow-blue-500 outline-none p-3"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="tutor@correo.com"
@@ -205,7 +205,7 @@ export default function CheckoutForm() {
           <label className="text-sm mb-1">Fecha de inicio *</label>
           <input
             type="date"
-            className="rounded-lg border bg-background p-3"
+            className="rounded-lg border border-primary-light shadow focus:shadow-blue-500 outline-none p-3"
             value={dateFrom}
             onChange={(e) => setDateFrom(e.target.value)}
             required
@@ -216,7 +216,7 @@ export default function CheckoutForm() {
           <label className="text-sm mb-1">Fecha de fin *</label>
           <input
             type="date"
-            className="rounded-lg border bg-background p-3"
+            className="rounded-lg border border-primary-light shadow focus:shadow-blue-500 outline-none p-3"
             value={dateTo}
             onChange={(e) => setDateTo(e.target.value)}
             required
@@ -227,7 +227,7 @@ export default function CheckoutForm() {
           <label className="text-sm mb-1">Observaciones (alergias, necesidades especiales, etc.)</label>
           <textarea
             rows={4}
-            className="rounded-lg border bg-background p-3"
+            className="rounded-lg border border-primary-light shadow focus:shadow-blue-500 outline-none p-3"
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
             placeholder="Cuéntanos cualquier información relevante"
@@ -236,7 +236,7 @@ export default function CheckoutForm() {
       </div>
 
       {/* Stripe PaymentElement */}
-      <div className="rounded-xl border p-4 bg-card">
+      <div className="rounded-xl border border-primary-light p-4 bg-card">
         <label className="block text-sm mb-2">Método de pago</label>
         <PaymentElement />
       </div>
@@ -250,7 +250,7 @@ export default function CheckoutForm() {
       <button
         type="submit"
         disabled={!canSubmit || isSubmitting}
-        className="w-full md:w-auto px-6 py-3 text-white btn-grad rounded-xl disabled:opacity-60"
+        className="w-full md:w-auto px-6 py-3 text-white btn-grad rounded-xl disabled:opacity-30 disabled:cursor-not-allowed disabled:btn-grad-disabled font-semibold transition"
       >
         {isSubmitting ? "Procesando…" : "Pagar e inscribir"}
       </button>

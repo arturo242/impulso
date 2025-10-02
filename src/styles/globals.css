@@ -15,11 +15,11 @@
 
   /* --background: #082429; */
   --background: var(--royal-blue-950);
-  --foreground: #c9c9c9;
+  --foreground: #eeeeee;
   /* --primary: #00ad4a; */
   --primary: var(--royal-blue-600);
   /* --primary-light: #a1f5a3; */
-  --primary-light: var(--royal-blue-200);
+  --primary-light: var(--royal-blue-300);
   /* --muted-foreground: #a1a1a1; */
   --muted-foreground: var(--royal-blue-100);
 }
@@ -76,4 +76,16 @@ body {
   color: #fff;
   text-decoration: none;
 
+}
+
+.tachado::before{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  border-radius: 3px;
+  background-color: var(--primary);
+  top: 50%;
+  left: 0;
+  transform: rotate(-20deg);
 }

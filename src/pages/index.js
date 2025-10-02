@@ -20,119 +20,157 @@ export default function Home() {
   const options = clientSecret
     ? {
       clientSecret,
-      appearance: { theme: "stripe" },
-      locale: "auto",
+      appearance: { theme: "night" },
+      locale: "es",
     }
     : undefined;
   return (
     <div
-      className={`sm:max-w-[60vw] max-w-[90vw] mx-auto text-center py-20`}
+      className={`md:max-w-[70vw] max-w-[95vw] mx-auto text-center`}
     >
-      <h1 className="text-2xl font-semibold md:text-4xl mb-6">Ludoteca Impulso – Campamento Juan de Austria, Aguadulce</h1>
-      <p className="text-lg md:text-xl text-muted-foreground px-10">Aprende, juega y crece rodeado de naturaleza.</p>
-      <p className="text-lg md:text-xl text-muted-foreground px-10">En la Ludoteca Impulso, ofrecemos una propuesta única para las tardes: un espacio educativo y lúdico en plena naturaleza, dentro del entorno privilegiado del Campamento Juan de Austria, en Aguadulce.</p>
-      <p className="text-lg md:text-xl text-muted-foreground px-10">Aquí, cada tarde es una oportunidad para aprender de forma divertida, disfrutar del aire libre y crecer en valores a través del juego, el deporte y la creatividad.</p>
-      <Link href="#inscripcion" className="inline-block mt-4 px-6 py-3 text-white btn-grad rounded-2xl">¡Inscríbete ahora!</Link>
-      <Image
-        src="/1.jpeg"
-        alt="Campamento Juan de Austria"
-        width={800}
-        height={100}
-        className="w-full h-[400px] object-cover rounded-lg mt-10"
-      />
-
-      <h2 className="text-primary-light text-2xl font-semibold md:text-4xl mt-20 mb-4">Impulso: una tarde diferente en Aguadulce</h2>
-      <p className="text-sm md:text-lg text-muted-foreground px-10">En Impulso, combinamos deporte, talleres temáticos y apoyo con los deberes en el Campamento Juan de Austria, creando un espacio donde los niños pueden aprender, explorar y divertirse de manera segura. Nuestro equipo está formado por profesionales comprometidos con el desarrollo integral de cada participante.</p>
-      <h2 className="text-primary-light text-2xl font-semibold md:text-4xl mt-20 mb-8">Lo que tus hijos vivirán cada tarde en Impulso</h2>
-      <section className="flex flex-col md:flex-row gap-4 md:gap-0 position-absolute">
-        <div className="glass-card bg-primary-radial p-4 rounded-xl flex flex-col justify-center items-center gap-2 mx-2 border-1 border-primary-light">
-          <div className="rounded-full bg-neutral-900 p-2">
-            🏃
+      <div className="h-[100vh] flex flex-col justify-center gap-2">
+        <h1 className="text-2xl font-semibold md:text-4xl mb-6">Ludoteca Impulso – Campamento Juan de Austria, Aguadulce</h1>
+        <p className="text-lg md:text-xl text-muted-foreground px-10 mt-10">Aprende, juega y crece rodeado de naturaleza.</p>
+        <p className="text-lg md:text-xl px-10 mt-8">En la Ludoteca Impulso, ofrecemos una propuesta única para las tardes: un espacio educativo y lúdico en plena naturaleza, dentro del entorno privilegiado del Campamento Juan de Austria, en Aguadulce.</p>
+        <p className="text-lg md:text-xl px-10 mt-8">Aquí, cada tarde es una oportunidad para aprender de forma divertida, disfrutar del aire libre y crecer en valores a través del juego, el deporte y la creatividad.</p>
+        <Link href="#inscripcion" className="inline-block mt-4 px-6 py-3 text-white btn-grad rounded-2xl w-50 mx-auto">¡Inscríbete ahora!</Link>
+      </div>
+<section className="py-20 px-4">
+        <div className="max-w-4xl mx-auto text-center space-y-8">
+          <h2 className="text-3xl md:text-4xl">
+            🕓 Horario
+          </h2>
+          <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">
+            De lunes a viernes, de 16:00 a 20:00 h
+          </p>
+          <p className="text-lg text-muted-foreground leading-relaxed">
+            Un horario pensado para complementar la jornada escolar, en un ambiente relajado, dinámico y enriquecedor.
+          </p>
+          
+          <div className="mt-12 text-left max-w-3xl mx-auto space-y-6">
+            <h3 className="text-2xl">Quiénes somos</h3>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              En <strong>Ludoteca Impulso</strong>, creemos en el poder del juego como herramienta de desarrollo integral. Somos un equipo multidisciplinar de educadores, monitores y profesionales con amplia experiencia en el ámbito educativo y del ocio infantil y juvenil.
+            </p>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Nuestra ludoteca se sitúa en el entorno natural del <strong>Campamento Juan de Austria (Aguadulce)</strong>, un lugar que nos permite combinar el aprendizaje con el aire libre, el juego con la calma, y el estudio con la creatividad.
+            </p>
+            
+            <div className="mt-8 space-y-4">
+              <h4 className="text-xl">Nuestra misión:</h4>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Ofrecer un espacio seguro, motivador y enriquecedor para niños, niñas y jóvenes de todas las edades, donde puedan desarrollarse emocional, social y cognitivamente mientras se divierten.
+              </p>
+              
+              <h4 className="text-xl">Nuestros valores:</h4>
+              <ul className="space-y-2 text-lg text-muted-foreground">
+                <li>• Educación desde el respeto</li>
+                <li>• Juego como motor del aprendizaje</li>
+                <li>• Inclusión y diversidad</li>
+                <li>• Naturaleza como aula viva</li>
+                <li>• Acompañamiento emocional y personalizado</li>
+              </ul>
+            </div>
           </div>
-          <span className="text-xl font-semibold">Deporte</span>
-          <p className="text-sm text-muted-foreground">Actividades físicas y juegos al aire libre que fomentan la salud y el trabajo en equipo.</p>
-        </div>
-        <div className="glass-card bg-primary-radial p-4 rounded-xl flex flex-col justify-center items-center gap-2 mx-2 border-1 border-primary-light">
-          <div className="rounded-full bg-neutral-900 p-2">
-            📚
-          </div>
-          <span className="text-xl font-semibold">Aprendizaje</span>
-          <p className="text-sm text-muted-foreground">Apoyo con deberes y talleres educativos para estimular creatividad y pensamiento crítico.</p>
-        </div>
-        <div className="glass-card bg-primary-radial p-4 rounded-xl flex flex-col justify-center items-center gap-2 mx-2 border-1 border-primary-light">
-          <div className="rounded-full bg-neutral-900 p-2">
-            ❤️
-          </div>
-          <span className="text-xl font-semibold">Diversión</span>
-          <p className="text-sm text-muted-foreground">Talleres temáticos y dinámicas que garantizan risas y experiencias inolvidables.</p>
-        </div>
-        <div className="glass-card bg-primary-radial p-4 rounded-xl flex flex-col justify-center items-center gap-2 mx-2 border-1 border-primary-light">
-          <div className="rounded-full bg-neutral-900 p-2">
-            🛡️
-          </div>
-          <span className="text-xl font-semibold">Seguridad</span>
-          <p className="text-sm text-muted-foreground">Monitores profesionales y protocolos de seguridad en el Campamento Juan de Austria.</p>
         </div>
       </section>
-      <Image
-        src="/2.jpg"
-        alt="Campamento Juan de Austria"
-        width={800}
-        height={100}
-        className="w-full h-[400px] object-cover rounded-lg mt-10"
-      />
+      
+      <section className="flex flex-col gap-4 position-absolute md:w-[40vw] w-[75vw] mx-auto">
+
+        <h2 className="text-3xl md:text-4xl">🎯 Actividades que impulsan el desarrollo</h2>
+        <div className="glass-card bg-primary-radial p-4 rounded-xl flex flex-col justify-center items-center gap-2 mx-2 border-1 border-primary-light">
+          <div className="rounded-full bg-primary-light p-2">
+            📘
+          </div>
+          <span className="text-xl font-semibold">Refuerzo escolar</span>
+            <ul className="text-sm text-muted-foreground list-disc list-inside text-start">
+              <li>Acompañamiento en la realización de deberes</li>
+              <li>Técnicas de estudio</li>
+              <li>Lectura comprensiva y escritura</li>
+            </ul>
+        </div>
+        <div className="glass-card bg-primary-radial p-4 rounded-xl flex flex-col justify-center items-center gap-2 mx-2 border-1 border-primary-light">
+          <div className="rounded-full bg-primary-light p-2">
+            🇬🇧
+          </div>
+          <span className="text-xl font-semibold">Inglés divertido</span>
+            <ul className="text-sm text-muted-foreground list-disc list-inside text-start">
+              <li>Juegos, canciones y dinámicas en inglés</li>
+              <li>Aprendizaje natural y sin presión</li>
+            </ul>
+        </div>
+        <div className="glass-card bg-primary-radial p-4 rounded-xl flex flex-col justify-center items-center gap-2 mx-2 border-1 border-primary-light">
+          <div className="rounded-full bg-primary-light p-2">
+            🧠
+          </div>
+          <span className="text-xl font-semibold">Talleres creativos</span>
+            <ul className="text-sm text-muted-foreground list-disc list-inside text-start">
+              <li>Manualidades, ciencia, cocina, arte y reciclaje</li>
+              <li>Estimulación sensorial y expresión libre</li>
+            </ul>
+        </div>
+        <div className="glass-card bg-primary-radial p-4 rounded-xl flex flex-col justify-center items-center gap-2 mx-2 border-1 border-primary-light">
+          <div className="rounded-full bg-primary-light p-2">
+            🏃‍♂️
+          </div>
+          <span className="text-xl font-semibold">Actividades al aire libre</span>
+            <ul className="text-sm text-muted-foreground list-disc list-inside text-start">
+              <li>Deportes colectivos</li>
+              <li>Juegos tradicionales y cooperativos</li>
+            </ul>
+        </div>
+        <div className="glass-card bg-primary-radial p-4 rounded-xl flex flex-col justify-center items-center gap-2 mx-2 border-1 border-primary-light">
+          <div className="rounded-full bg-primary-light p-2">
+            🎲
+          </div>
+          <span className="text-xl font-semibold">Juegos libres y dirigidos</span>
+            <ul className="text-sm text-muted-foreground list-disc list-inside text-start">
+              <li>Dinámicas de grupo</li>
+              <li>Juegos simbólicos y de construcción</li>
+              <li>Espacio para la socialización y el juego espontáneo</li>
+            </ul>
+        </div>
+      </section>
+
+
       <section className="mt-20">
-        <h2 className="text-primary-light text-2xl font-semibold md:text-4xl mt-20 mb-4">Horarios flexibles y precios accesibles en Aguadulce</h2>
-        <p className="text-sm md:text-lg text-muted-foreground px-10">Nuestras actividades se realizan de lunes a viernes, de 16:00 a 20:00, para niños de 4 a 12 años.</p>
-        <div className="flex lg:flex-row flex-col items-center justify-around gap-10 mt-20">
-          <div className="flex lg:flex-col gap-5 text-start flex-1">
-            <div className="bg-emerald-950/40 flex items-center gap-2 rounded-lg p-4">
+        <h2 className="text-primary-light text-2xl font-semibold md:text-4xl mt-20 mb-4">Horarios y tarifas</h2>
+        <div className="flex flex-col items-center gap-10 mt-8">
+          <div className="flex gap-5 text-start flex-1">
+            <div className="bg-indigo-950/40 flex items-center gap-2 rounded-lg p-4">
               <div>🕐</div>
               <div>
                 <div className="text-muted-foreground">Horario</div>
                 <div>16:00 - 20:00</div>
               </div>
             </div>
-            <div className="bg-emerald-950/40 flex items-center gap-2 rounded-lg p-4">
+            <div className="bg-indigo-950/40 flex items-center gap-2 rounded-lg p-4">
               <div>📅</div>
               <div>
                 <div className="text-muted-foreground">Días</div>
                 <div>Lunes a viernes</div>
               </div>
             </div>
-            <div className="bg-emerald-950/40 flex items-center gap-2 rounded-lg p-4">
-              <div>👥</div>
-              <div>
-                <div className="text-muted-foreground">Edades</div>
-                <div>4 a 12 años</div>
-              </div>
-            </div>
           </div>
-          <div className="min-w-[400px] text-start flex flex-col gap-6 flex-2">
-            <Link href="#inscripcion" className="bg-primary-radial p-4 rounded-lg border-1 border-gray-500/50 block w-full">
-              <h3 className="text-2xl font-semibold">Semana</h3>
-              <p className="text-sm text-muted-foreground">Perfecto para probar</p>
+          <div className="text-start flex md:flex-row flex-col gap-6 flex-2">
+            <Link href="#inscripcion" className="bg-primary-radial p-4 rounded-lg border-1 border-gray-500/50 block min-w-[350px] flex flex-col justify-between">
+              <h3 className="text-2xl font-semibold">Bono semanal</h3>
+              <p className="text-sm text-muted-foreground">5 días</p>
               <div className="text-4xl mt-6 mb-6">70€</div>
-              <div className="px-6 py-3 text-white btn-grad rounded-xl">Reserva tu plaza hoy</div>
+              <div className="px-6 py-3 text-white btn-grad rounded-xl">Reserva tu plaza</div>
             </Link>
-            <Link href="#inscripcion" className="bg-primary-radial p-4 rounded-lg border-1 border-primary block w-full">
+            <Link href="#inscripcion" className="bg-primary-radial p-4 rounded-lg border-1 border-primary block min-w-[350px] flex flex-col justify-between">
               <div className="flex justify-between items-center">
                 <div>
-                  <h3 className="text-2xl font-semibold">Mes completo</h3>
-                  <p className="text-sm text-muted-foreground">Perfecto para probar</p>
+                  <h3 className="text-2xl font-semibold">Bono mensual</h3>
                 </div>
                 <div>
-                  <span className="rounded-full border px-2.5 py-0.5 text-xs font-semibold text-primary border-primary">Oferta</span>
+                  <span className="rounded-full px-3 py-1 text-xs font-semibold bg-primary">Oferta</span>
                 </div>
               </div>
-              <div className="text-4xl mt-6 mb-2 text-primary">200€</div>
-              <p className="text-sm text-muted-foreground">
-                Primeras 20 inscripciones
-              </p>
-              <p className="text-sm text-muted-foreground">
-                220€ una vez agotadas las primeras inscripciones
-              </p>
-              <div className="mt-6 px-6 py-3 text-white btn-grad rounded-xl">Reserva tu plaza hoy</div>
+              <div className="text-4xl mt-12 text-primary relative">250€ <span className="text-white tachado text-lg absolute">280€</span></div>
+              
+              <div className="mt-6 px-6 py-3 text-white btn-grad rounded-xl">Reserva tu plaza</div>
             </Link>
           </div>
         </div>
