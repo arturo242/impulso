@@ -1,4 +1,5 @@
 import CheckoutForm from "@/components/CheckoutForm";
+import Contact from "@/components/Contact";
 import Header from "@/components/Header";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
@@ -234,7 +235,9 @@ export default function Home() {
             </Elements>
           )}
         </section>
+
       </div>
+          <Contact />
     </>
   );
 }
