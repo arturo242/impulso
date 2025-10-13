@@ -90,11 +90,11 @@ export default function CheckoutForm() {
   };
 
   return (
-    <form onSubmit={onSubmit} className="max-w-2xl mx-auto text-left space-y-6">
+    <form onSubmit={onSubmit} className="max-w-2xl mx-auto space-y-6">
       <h3 className="text-3xl md:text-4xl font-semibold mb-6">Inscripción</h3>
 
       {/* Enrollment fields */}
-      <div className="grid md:grid-cols-2 gap-4">
+      <div className="grid md:grid-cols-2 gap-4 text-left">
         <div className="flex flex-col">
           <label className="text-sm mb-1">Nombre del niño/a *</label>
           <input
@@ -209,7 +209,7 @@ export default function CheckoutForm() {
 
       <button
         type="submit"
-        className="w-full md:w-auto px-6 py-3 text-white btn-grad rounded-xl disabled:opacity-30 disabled:cursor-not-allowed disabled:btn-grad-disabled font-semibold transition"
+        className="cursor-pointer w-full md:w-auto px-6 py-3 text-white btn-grad rounded-xl disabled:opacity-30 disabled:cursor-not-allowed disabled:btn-grad-disabled font-semibold transition"
       >
         Inscribir
       </button>

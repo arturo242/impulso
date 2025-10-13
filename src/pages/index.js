@@ -40,7 +40,7 @@ export default function Home() {
         className={`md:max-w-[70vw] max-w-[95vw] mx-auto text-center`}
       >
         <div className="h-[100vh] flex flex-col justify-center gap-2">
-          <h1 className="text-2xl font-bold md:text-4xl mb-6 text-primary-dark">Innova Center Ludoteca – Campamento Juan de Austria</h1>
+          <h1 className="text-2xl font-bold md:text-4xl mb-6 text-primary-dark mt-30">Innova Center Ludoteca – Campamento Juan de Austria</h1>
           <p className="text-lg md:text-xl text-muted-foreground px-10 mt-10">Aprende, juega y crece rodeado de naturaleza.</p>
           <p className="text-lg md:text-xl px-10 mt-8">En la Ludoteca Innova Center, ofrecemos una propuesta única para las tardes: un espacio educativo y lúdico en plena naturaleza, dentro del entorno privilegiado del Campamento Juan de Austria, en Aguadulce.</p>
           <p className="text-lg md:text-xl px-10 mt-8">Aquí, cada tarde es una oportunidad para aprender de forma divertida, disfrutar del aire libre y crecer en valores a través del juego, el deporte y la creatividad.</p>
