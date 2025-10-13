@@ -1,26 +1,27 @@
+import Link from "next/link";
 
 const Header = () => (
     <header className='fixed blurred w-full bg-primary-radial flex justify-between items-center p-8 shadow-xl'>
-        <a href="/" className='text-white no-underline'>Logo</a>
+        <Link href="/" className='text-white no-underline'>Logo</Link>
         <nav className="">
             <ul className='flex items-center list-none m-0 p-0 gap-4'>
                 <li>
-                    <a href="#quienessomos" className='font-semibold text-white no-underline hover:text-primary-light'>Quiénes somos</a>
+                    <Link href="#quienessomos" className='font-semibold text-white no-underline hover:text-primary-light'>Quiénes somos</Link>
                 </li>
                 <li>
-                    <a href="#actividades" className='font-semibold text-white no-underline hover:text-primary-light'>Actividades</a>
+                    <Link href="#actividades" className='font-semibold text-white no-underline hover:text-primary-light'>Actividades</Link>
                 </li>
                 <li>
-                    <a href="#horarios" className='font-semibold text-white no-underline hover:text-primary-light'>Horarios y tarifas</a>
+                    <Link href="#horarios" className='font-semibold text-white no-underline hover:text-primary-light'>Horarios y tarifas</Link>
                 </li>
                 {/* <li>
-                    <a href="#galeria" className='font-semibold text-white no-underline hover:text-primary-light'>Galería</a>
+                    <Link href="#galeria" className='font-semibold text-white no-underline hover:text-primary-light'>Galería</Link>
                 </li> */}
                 <li>
-                    <a href="#inscripcion" className='font-semibold text-white no-underline hover:text-primary-light'>Inscripciones</a>
+                    <Link href="#inscripcion" className='font-semibold text-white no-underline hover:text-primary-light'>Inscripciones</Link>
                 </li>
                 <li>
-                    <a href="#contacto" className='font-semibold text-white no-underline hover:text-primary-light'>Contacto</a>
+                    <Link href="#contacto" className='font-semibold text-white no-underline hover:text-primary-light'>Contacto</Link>
                 </li>
             </ul>
         </nav>
