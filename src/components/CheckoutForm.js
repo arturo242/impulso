@@ -17,6 +17,7 @@ export default function CheckoutForm() {
   const [dateFrom, setDateFrom] = useState("");
   const [dateTo, setDateTo] = useState("");
   const [notes, setNotes] = useState("");
+  const [pricing, setPricing] = useState("");
 
   // UI state
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -24,47 +25,46 @@ export default function CheckoutForm() {
 
   const canSubmit = useMemo(() => {
     return (
-      !!stripe &&
-      !!elements &&
       childName.trim() &&
       age &&
       guardianName.trim() &&
       phone.trim() &&
       email.trim() &&
       dateFrom &&
-      dateTo
+      dateTo &&
+      pricing.trim()
     );
-  }, [stripe, elements, childName, age, guardianName, phone, email, dateFrom, dateTo]);
+    }, [childName, age, guardianName, phone, email, dateFrom, dateTo, pricing]);
 
-  useEffect(() => {
-    if (!stripe) return;
-    const clientSecret = new URLSearchParams(window.location.search).get(
-      "payment_intent_client_secret"
-    );
-    if (!clientSecret) return;
-    // If you are redirected back from a 3DS flow, show status message
-    stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
-      switch (paymentIntent?.status) {
-        case "succeeded":
-          setMessage("¡Pago completado! Hemos recibido tu inscripción.");
-          break;
-        case "processing":
-          setMessage("Tu pago se está procesando…");
-          break;
-        case "requires_payment_method":
-          setMessage("Tu pago no pudo completarse. Intenta con otro método.");
-          break;
-        default:
-          setMessage(null);
-      }
-    });
-  }, [stripe]);
+  // useEffect(() => {
+  //   if (!stripe) return;
+  //   const clientSecret = new URLSearchParams(window.location.search).get(
+  //     "payment_intent_client_secret"
+  //   );
+  //   if (!clientSecret) return;
+  //   // If you are redirected back from a 3DS flow, show status message
+  //   stripe.retrievePaymentIntent(clientSecret).then(({ paymentIntent }) => {
+  //     switch (paymentIntent?.status) {
+  //       case "succeeded":
+  //         setMessage("¡Pago completado! Hemos recibido tu inscripción.");
+  //         break;
+  //       case "processing":
+  //         setMessage("Tu pago se está procesando…");
+  //         break;
+  //       case "requires_payment_method":
+  //         setMessage("Tu pago no pudo completarse. Intenta con otro método.");
+  //         break;
+  //       default:
+  //         setMessage(null);
+  //     }
+  //   });
+  // }, [stripe]);
 
   const onSubmit = async (e) => {
     e.preventDefault();
     setMessage(null);
 
-    if (!stripe || !elements) return;
+    if (!elements) return;
     if (!canSubmit) {
       setMessage("Por favor, completa todos los campos obligatorios.");
       return;
@@ -72,74 +72,26 @@ export default function CheckoutForm() {
 
     setIsSubmitting(true);
 
-    // Optional: send your enrollment data to your backend so you can
-    // attach it as metadata to the PaymentIntent or store it in your DB.
-    // This keeps Stripe Dashboard + your records in sync.
-    // You can implement this route; it's safe to skip if you prefer.
-    try {
-      await fetch("/api/enrollment/impulso", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          childName,
-          age,
-          guardianName,
-          phone,
-          email,
-          dateFrom,
-          dateTo,
-          notes,
-        }),
-      });
-    } catch {
-      // Non-fatal: continue with payment even if this call fails.
-    }
+    const data = { childName, age, guardianName, phone, email, dateFrom, dateTo, notes, pricing };
 
-    const { error, paymentIntent } = await stripe.confirmPayment({
-      elements,
-      // Only redirect if the payment method requires it (e.g., 3DS)
-      redirect: "if_required",
-      confirmParams: {
-        // This info shows up on the receipt & can prefill payment UI
-        receipt_email: email,
-        payment_method_data: {
-          billing_details: {
-            name: guardianName,
-            email,
-            phone,
-          },
-        },
-        // If your flow needs a return URL for mandatory redirects:
-        return_url: typeof window !== "undefined"
-          ? `${window.location.origin}/inscripcion-exitosa`
-          : undefined,
-      },
+    const response = await fetch("/api/inscripciones", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data)
     });
 
-    if (error) {
-      // Immediate validation or confirmation error
-      setMessage(error.message || "Ha ocurrido un error al procesar el pago.");
-      setIsSubmitting(false);
-      return;
-    }
-
-    // Handle result without redirect:
-    if (paymentIntent?.status === "succeeded") {
-      setMessage("¡Pago completado! Hemos recibido tu inscripción.");
-    } else if (paymentIntent?.status === "processing") {
-      setMessage("Tu pago se está procesando…");
-    } else if (paymentIntent?.status === "requires_payment_method") {
-      setMessage("Tu pago no pudo completarse. Prueba con otro método.");
+    if (response.ok) {
+      setMessage("¡Inscripción completada! Nos pondremos en contacto contigo pronto.");
     } else {
-      setMessage("Estado de pago desconocido. Revisa tu correo o inténtalo de nuevo.");
+      const errorData = await response.json();
+      setMessage(errorData.error || "Hubo un error al enviar la inscripción. Inténtalo de nuevo.");
     }
 
-    setIsSubmitting(false);
   };
 
   return (
     <form onSubmit={onSubmit} className="max-w-2xl mx-auto text-left space-y-6">
-      <h3 className="text-2xl font-semibold mb-2">Formulario de inscripción</h3>
+      <h3 className="text-3xl md:text-4xl font-semibold mb-6">Inscripción</h3>
 
       {/* Enrollment fields */}
       <div className="grid md:grid-cols-2 gap-4">
@@ -235,11 +187,19 @@ export default function CheckoutForm() {
         </div>
       </div>
 
+      <div>
+        <select id="pricing" onChange={(e) => setPricing(e.target.value)} className="rounded-lg border border-primary-light shadow focus:shadow-blue-500 outline-none p-3 w-full " required>
+          <option className="bg-primary-light" value="">Selecciona una tarifa *</option>
+          <option className="bg-primary-light" value={"semanal"} >Bono semanal (70€/5 días)</option>
+          <option className="bg-primary-light" value={"mensual"}>Bono mensual (250€/mes)</option>
+        </select>
+      </div>
+
       {/* Stripe PaymentElement */}
-      <div className="rounded-xl border border-primary-light p-4 bg-card">
+      {/* <div className="rounded-xl border border-primary-light p-4 bg-card">
         <label className="block text-sm mb-2">Método de pago</label>
         <PaymentElement />
-      </div>
+      </div> */}
 
       {message && (
         <div className="text-sm p-3 rounded-lg border bg-emerald-950/40">
@@ -249,15 +209,14 @@ export default function CheckoutForm() {
 
       <button
         type="submit"
-        disabled={!canSubmit || isSubmitting}
         className="w-full md:w-auto px-6 py-3 text-white btn-grad rounded-xl disabled:opacity-30 disabled:cursor-not-allowed disabled:btn-grad-disabled font-semibold transition"
       >
-        {isSubmitting ? "Procesando…" : "Pagar e inscribir"}
+        Inscribir
       </button>
 
-      <p className="text-xs text-muted-foreground">
+      {/* <p className="text-xs text-muted-foreground">
         Al continuar, aceptas nuestra política de privacidad y el tratamiento de los datos para formalizar la inscripción.
-      </p>
+      </p> */}
     </form>
   );
 }

@@ -20,6 +20,7 @@
   --primary: var(--royal-blue-600);
   /* --primary-light: #a1f5a3; */
   --primary-light: var(--royal-blue-300);
+  --primary-dark: var(--royal-blue-800);
   /* --muted-foreground: #a1a1a1; */
   --muted-foreground: var(--royal-blue-100);
 }
@@ -30,8 +31,17 @@ html {
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  background: radial-gradient(circle at 50% 20%, var(--royal-blue-400) 0%, var(--background) 100%);
   color: var(--foreground);
+  background-image: 
+    radial-gradient(circle at 35% 35%, var(--royal-blue-400) 0%, var(--background) 100%),
+    radial-gradient(circle 450px at 100% 100px, rgba(255, 255, 200, 0.35), transparent 100%),
+    radial-gradient(circle 350px at 100px 100%, rgba(180, 200, 255, 0.5), transparent 100%),
+    url('/stars.png');
+  background-size: 100%, 100%, 100%, 50vh;
+  background-blend-mode: screen;
+  background-attachment: fixed
+  /* background: radial-gradient(circle at 50% 20%, var(--royal-blue-400) 0%, var(--background) 100%);
+  background: radial-gradient(circle at 100% 0%, var(--foreground) 0%, var(--background) 20%); */
 }
 
 .text-primary {
@@ -39,6 +49,9 @@ body {
 }
 .text-primary-light {
   color: var(--primary-light);
+}
+.text-primary-dark {
+  color: var(--primary-dark);
 }
 
 .text-muted-foreground {
@@ -60,7 +73,7 @@ body {
 }
 
 .bg-primary-radial {
-  background: radial-gradient(circle at 0%, rgba(0, 0, 0, 0.1) 0%, rgba(192, 204, 255, 0.2) 100%);
+  background: radial-gradient(circle at 0%, rgba(0, 0, 0, 0.2) 0%, rgba(192, 204, 255, 0.4) 100%);
 }
 
 
@@ -68,6 +81,14 @@ body {
   background-image: linear-gradient(to right, var(--primary) 0%, var(--primary-light) 51%, var(--primary) 100%);
   transition: 0.5s;
   background-size: 350% auto;
+
+  box-shadow: inset .2rem .2rem 1rem var(--primary-light),
+  inset -.2rem -.2rem 1rem var(--primary-dark);
+}
+
+.btn-grad:active{
+  box-shadow:inset .2rem .2rem 1rem var(--primary-dark), 
+             inset -.2rem -.2rem 1rem var(--primary-light);
 }
 
 .btn-grad:hover {
@@ -88,4 +109,13 @@ body {
   top: 50%;
   left: 0;
   transform: rotate(-20deg);
+}
+
+.blurred{
+  backdrop-filter: blur(5px);
+}
+
+nav li a:hover {
+  color: var(--primary-light);
+  text-shadow: 0 2px 20px var(--primary-dark);
 }
