@@ -190,8 +190,8 @@ export default function CheckoutForm() {
       <div>
         <select id="pricing" onChange={(e) => setPricing(e.target.value)} className="rounded-lg border border-primary-light shadow focus:shadow-blue-500 outline-none p-3 w-full " required>
           <option className="bg-primary-light" value="">Selecciona una tarifa *</option>
-          <option className="bg-primary-light" value={"semanal"} >Bono semanal (70€/5 días)</option>
-          <option className="bg-primary-light" value={"mensual"}>Bono mensual (250€/mes)</option>
+          <option className="bg-primary-light" value={"semanal"} >Bono semanal (70€)</option>
+          <option className="bg-primary-light" value={"mensual"}>Bono mensual (250€)</option>
         </select>
       </div>
 
@@ -206,6 +206,10 @@ export default function CheckoutForm() {
           {message}
         </div>
       )}
+
+        <div className="text-sm p-3 rounded-lg border bg-indigo-400/50">
+          ℹ️ El pago se realizará en el establecimiento.
+        </div>
 
       <button
         type="submit"

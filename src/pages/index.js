@@ -60,7 +60,7 @@ export default function Home() {
               <div className="mt-8 space-y-4">
                 <h4 className="text-xl">Nuestra misión:</h4>
                 <p className="text-lg text-muted-foreground leading-relaxed">
-                  Ofrecer un espacio seguro, motivador y enriquecedor para niños, niñas y jóvenes de todas las edades, donde puedan desarrollarse emocional, social y cognitivamente mientras se divierten.
+                  Ofrecer un espacio seguro, motivador y enriquecedor para niños y niñas a partir de 5 años, donde puedan desarrollarse emocional, social y cognitivamente mientras se divierten.
                 </p>
 
                 <h4 className="text-xl">Nuestros valores:</h4>
@@ -153,7 +153,6 @@ export default function Home() {
             <div className="text-start flex md:flex-row flex-col gap-6 flex-2">
               <Link href="#inscripcion" onClick={selectPricingValue("semanal")} className="bg-primary-radial p-4 rounded-lg border-1 border-gray-500/50 block min-w-[350px] flex flex-col justify-between">
                 <h3 className="text-2xl font-semibold">Bono semanal</h3>
-                <p className="text-sm text-muted-foreground">5 días</p>
                 <div className="text-4xl mt-6 mb-6">70€</div>
                 <div className="px-6 py-3 text-white btn-grad rounded-xl">Reserva tu plaza</div>
               </Link>
