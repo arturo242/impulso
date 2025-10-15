@@ -25,7 +25,6 @@ export default function Home() {
     }
   };
 
-  console.log(clientSecret)
   const options = clientSecret
     ? {
       clientSecret,

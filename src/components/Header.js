@@ -64,7 +64,7 @@ const Header = () => {
                         <Link
                             href="#quienessomos"
                             className="font-semibold text-white no-underline hover:text-primary-light"
-                            onClick={() => setMenuOpen(false)}
+                            onClick={() => !isMd && setMenuOpen(false)}
                         >
                             Quiénes somos
                         </Link>
@@ -73,7 +73,7 @@ const Header = () => {
                         <Link
                             href="#actividades"
                             className="font-semibold text-white no-underline hover:text-primary-light"
-                            onClick={() => setMenuOpen(false)}
+                            onClick={() => !isMd && setMenuOpen(false)}
                         >
                             Actividades
                         </Link>
@@ -82,7 +82,7 @@ const Header = () => {
                         <Link
                             href="#horarios"
                             className="font-semibold text-white no-underline hover:text-primary-light"
-                            onClick={() => setMenuOpen(false)}
+                            onClick={() => !isMd && setMenuOpen(false)}
                         >
                             Horarios y tarifas
                         </Link>
@@ -91,7 +91,7 @@ const Header = () => {
                         <Link
                             href="#inscripcion"
                             className="font-semibold text-white no-underline hover:text-primary-light"
-                            onClick={() => setMenuOpen(false)}
+                            onClick={() => !isMd && setMenuOpen(false)}
                         >
                             Inscripciones
                         </Link>
@@ -100,7 +100,7 @@ const Header = () => {
                         <Link
                             href="#contacto"
                             className="font-semibold text-white no-underline hover:text-primary-light"
-                            onClick={() => setMenuOpen(false)}
+                            onClick={() => !isMd && setMenuOpen(false)}
                         >
                             Contacto
                         </Link>
