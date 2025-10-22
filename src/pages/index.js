@@ -152,7 +152,7 @@ export default function Home() {
             <div className="text-start flex md:flex-row flex-col gap-6 flex-2">
               <Link href="#inscripcion" onClick={selectPricingValue("semanal")} className="bg-primary-radial p-4 rounded-lg border-1 border-gray-500/50 block min-w-[350px] flex flex-col justify-between">
                 <h3 className="text-2xl font-semibold">Bono semanal</h3>
-                <div className="text-4xl mt-6 mb-6">70€</div>
+                <div className="text-4xl mt-6 mb-6">60€</div>
                 <div className="px-6 py-3 text-white btn-grad rounded-xl">Reserva tu plaza</div>
               </Link>
               <Link href="#inscripcion" onClick={selectPricingValue("mensual")}  className="bg-primary-radial p-4 rounded-lg border-1 border-primary block min-w-[350px] flex flex-col justify-between">
@@ -164,7 +164,7 @@ export default function Home() {
                     <span className="rounded-full px-3 py-1 text-xs font-semibold bg-primary">Oferta</span>
                   </div>
                 </div>
-                <div className="text-4xl mt-12 text-primary relative font-bold">250€ <span className="text-white tachado text-lg absolute">280€</span></div>
+                <div className="text-4xl mt-12 text-primary relative font-bold">200€ <span className="text-white tachado text-lg absolute">280€</span></div>
 
                 <div className="mt-6 px-6 py-3 text-white btn-grad rounded-xl">Reserva tu plaza</div>
               </Link>
