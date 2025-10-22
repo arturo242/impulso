@@ -190,8 +190,8 @@ export default function CheckoutForm() {
       <div>
         <select id="pricing" onChange={(e) => setPricing(e.target.value)} className="rounded-lg border border-primary-light shadow focus:shadow-blue-500 outline-none p-3 w-full " required>
           <option className="bg-primary-light" value="">Selecciona una tarifa *</option>
-          <option className="bg-primary-light" value={"semanal"} >Bono semanal (70€)</option>
-          <option className="bg-primary-light" value={"mensual"}>Bono mensual (250€)</option>
+          <option className="bg-primary-light" value={"semanal"} >Bono semanal (60€)</option>
+          <option className="bg-primary-light" value={"mensual"}>Bono mensual (200€)</option>
         </select>
       </div>
 
